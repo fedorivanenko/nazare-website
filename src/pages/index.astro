@@ -9,7 +9,7 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Nazare brings modern software engineering to native Shopify themes."
+      content="Nazare ships highly custom Shopify storefronts without the usual headless tradeoffs."
     />
     <title>Nazare</title>
   </head>
@@ -22,12 +22,23 @@ import "../styles/global.css";
             id="hero-title"
             class="max-w-xl text-4xl font-normal leading-[1.05] tracking-[-0.03em] text-balance sm:text-5xl"
           >
-            Reduce the cost of changing Shopify themes
+            Build what you want. Move as fast as you want.
           </h1>
-          <p class="max-w-xl text-lg leading-7 text-muted-foreground">
-            An open-source toolkit bringing explicit interfaces, dependencies,
-            and reusable architecture to native Shopify themes.
+          <p class="max-w-xl text-2xl leading-tight tracking-[-0.02em] text-balance">
+            The Shopify storefront you actually want — without the usual headless burden
           </p>
+          <div class="max-w-xl space-y-4 text-lg leading-7 text-muted-foreground">
+            <p>
+              Nazare ships highly custom Shopify storefronts without the usual headless tradeoffs.
+              Launch new ideas, campaigns, integrations, A/B tests, and UX improvements without
+              constantly waiting on developers.
+            </p>
+            <p>
+              Create the customer experience you actually want, connect the tools your business
+              needs, and control every touchpoint that drives conversion — without every
+              improvement turning into an expensive development project.
+            </p>
+          </div>
         </div>
 
         <form class="max-w-lg space-y-3" data-signup-form>
@@ -50,12 +61,10 @@ import "../styles/global.css";
               type="submit"
               class="inline-flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-xs transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             >
-              Join the waitlist
+              Get in Touch
             </button>
           </div>
-          <p class="min-h-5 text-sm text-muted-foreground" data-form-status aria-live="polite">
-            Product updates only. Unsubscribe anytime.
-          </p>
+          <p class="min-h-5 text-sm text-muted-foreground" data-form-status aria-live="polite"></p>
         </form>
       </section>
     </main>
@@ -72,7 +81,7 @@ import "../styles/global.css";
         if (!button || !status) return;
 
         button.disabled = true;
-        button.textContent = "Joining…";
+        button.textContent = "Sending…";
         status.textContent = "";
 
         try {
@@ -89,7 +98,7 @@ import "../styles/global.css";
           status.textContent = result.message;
           if (response.ok) {
             form.reset();
-            button.textContent = "Joined";
+            button.textContent = "Sent";
             return;
           }
         } catch {
@@ -97,7 +106,7 @@ import "../styles/global.css";
         }
 
         button.disabled = false;
-        button.textContent = "Join the waitlist";
+        button.textContent = "Get in Touch";
       });
     </script>
   </body>
