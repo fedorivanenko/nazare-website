@@ -1,0 +1,104 @@
+---
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Nazare brings modern software engineering to native Shopify themes."
+    />
+    <title>Nazare</title>
+  </head>
+  <body class="min-h-svh bg-background font-sans text-foreground antialiased">
+    <main class="mx-auto flex min-h-svh w-full max-w-2xl items-center px-5 py-16">
+      <section class="w-full space-y-8" aria-labelledby="hero-title">
+        <div class="space-y-5">
+          <p class="font-mono text-sm text-muted-foreground">Nazare</p>
+          <h1
+            id="hero-title"
+            class="max-w-xl text-4xl font-normal leading-[1.05] tracking-[-0.03em] text-balance sm:text-5xl"
+          >
+            Reduce the cost of changing Shopify themes
+          </h1>
+          <p class="max-w-xl text-lg leading-7 text-muted-foreground">
+            An open-source toolkit bringing explicit interfaces, dependencies,
+            and reusable architecture to native Shopify themes.
+          </p>
+        </div>
+
+        <form class="max-w-lg space-y-3" data-signup-form>
+          <div class="flex flex-col gap-2 sm:flex-row">
+            <label class="sr-only" for="email">Email address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+              class="h-10 min-w-0 flex-1 rounded-md border border-input bg-background px-3 text-base shadow-xs outline-none transition-[color,box-shadow] placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm"
+            />
+            <div class="absolute -left-[10000px]" aria-hidden="true">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <button
+              type="submit"
+              class="inline-flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-xs transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            >
+              Join the waitlist
+            </button>
+          </div>
+          <p class="min-h-5 text-sm text-muted-foreground" data-form-status aria-live="polite">
+            Product updates only. Unsubscribe anytime.
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      const form = document.querySelector<HTMLFormElement>("[data-signup-form]");
+      const status = document.querySelector<HTMLElement>("[data-form-status]");
+
+      form?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
+        const formData = new FormData(form);
+
+        if (!button || !status) return;
+
+        button.disabled = true;
+        button.textContent = "Joining…";
+        status.textContent = "";
+
+        try {
+          const response = await fetch("/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: formData.get("email"),
+              website: formData.get("website"),
+            }),
+          });
+          const result = await response.json();
+
+          status.textContent = result.message;
+          if (response.ok) {
+            form.reset();
+            button.textContent = "Joined";
+            return;
+          }
+        } catch {
+          status.textContent = "Could not add your email. Try again.";
+        }
+
+        button.disabled = false;
+        button.textContent = "Join the waitlist";
+      });
+    </script>
+  </body>
+</html>

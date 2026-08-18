@@ -1,0 +1,22 @@
+{
+	"name": "nazare-website",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"typecheck": "astro check"
+	},
+	"dependencies": {
+		"@astrojs/vercel": "^11.0.6",
+		"astro": "^7.2.3",
+		"resend": "^6.20.0"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.10",
+		"@tailwindcss/vite": "^4.3.3",
+		"tailwindcss": "^4.3.3",
+		"typescript": "^6.0.3"
+	}
+}
