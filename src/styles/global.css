@@ -1,14 +1,6 @@
 @import "tailwindcss";
 
 @font-face {
-	font-family: "Source Sans 3";
-	font-style: normal;
-	font-weight: 200 900;
-	font-display: swap;
-	src: url("/fonts/SourceSans3-wght.ttf") format("truetype-variations");
-}
-
-@font-face {
 	font-family: "Commit Mono";
 	font-style: normal;
 	font-weight: 400;
@@ -16,52 +8,31 @@
 	src: url("/fonts/CommitMono-400-Regular.otf") format("opentype");
 }
 
-:root {
-	--background: oklch(0.9 0 0);
-	--foreground: oklch(0.2 0 0);
-	--card: oklch(0.93 0 0);
-	--card-foreground: oklch(0.2 0 0);
-	--primary: oklch(0.2 0 0);
-	--primary-foreground: oklch(0.98 0 0);
-	--muted: oklch(0.84 0 0);
-	--muted-foreground: oklch(0.45 0 0);
-	--border: oklch(0.77 0 0);
-	--input: oklch(0.72 0 0);
-	--ring: oklch(0.5 0 0);
-	--radius: 0.5rem;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: oklch(0.12 0 0);
-		--foreground: oklch(0.95 0 0);
-		--card: oklch(0.16 0 0);
-		--card-foreground: oklch(0.95 0 0);
-		--primary: oklch(0.95 0 0);
-		--primary-foreground: oklch(0.16 0 0);
-		--muted: oklch(0.2 0 0);
-		--muted-foreground: oklch(0.66 0 0);
-		--border: oklch(0.26 0 0);
-		--input: oklch(0.3 0 0);
-		--ring: oklch(0.66 0 0);
-	}
-}
-
 @theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--color-card: var(--card);
-	--color-card-foreground: var(--card-foreground);
-	--color-primary: var(--primary);
-	--color-primary-foreground: var(--primary-foreground);
-	--color-muted: var(--muted);
-	--color-muted-foreground: var(--muted-foreground);
-	--color-border: var(--border);
-	--color-input: var(--input);
-	--color-ring: var(--ring);
-	--radius-sm: calc(var(--radius) - 4px);
-	--radius-md: calc(var(--radius) - 2px);
-	--radius-lg: var(--radius);
-	--font-sans: "Source Sans 3", system-ui, sans-serif;
 	--font-mono: "Commit Mono", ui-monospace, monospace;
+}
+
+@layer base {
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		font-size: 16px;
+	}
+
+	body {
+		margin: 0;
+		text-rendering: optimizeLegibility;
+	}
+
+	::selection {
+		background: #ff6846;
+		color: #171717;
+	}
+
+	sub,
+	sup {
+		line-height: 0;
+	}
 }

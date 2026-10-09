@@ -9,105 +9,91 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Nazare ships highly custom Shopify storefronts without the usual headless tradeoffs."
+      content="Nazare is a semantic mutation substrate for autonomous software engineering."
     />
-    <title>Nazare</title>
+    <title>Nazare — A Semantic Mutation Substrate</title>
   </head>
-  <body class="min-h-svh bg-background font-sans text-foreground antialiased">
-    <main class="mx-auto flex min-h-svh w-full max-w-2xl items-center px-5 py-16">
-      <section class="w-full space-y-8" aria-labelledby="hero-title">
-        <div class="space-y-5">
-          <p class="font-mono text-sm text-muted-foreground">Nazare</p>
-          <h1
-            id="hero-title"
-            class="max-w-xl text-4xl font-normal leading-[1.05] tracking-[-0.03em] text-balance sm:text-5xl"
-          >
-            Build what you want. Move as fast as you want.
-          </h1>
-          <p class="max-w-xl text-2xl leading-tight tracking-[-0.02em] text-balance">
-            The Shopify storefront you actually want — without the usual headless burden
+  <body class="min-h-svh bg-[#f1f1ee] font-mono text-[#171717] antialiased dark:bg-[#151515] dark:text-[#e8e8e3]">
+    <main class="mx-auto w-full max-w-3xl px-5 py-12 sm:px-8 sm:py-20 lg:py-28">
+      <article aria-labelledby="title">
+        <h1 id="title" class="max-w-2xl text-xl leading-[1.35] font-semibold tracking-[-0.025em] sm:text-2xl">
+          Nazare: A Semantic Mutation Substrate for Autonomous Software Engineering
+        </h1>
+
+        <div class="mt-10 space-y-6 text-[0.9375rem] leading-[1.7] tracking-[-0.012em] text-[#555651] sm:text-base dark:text-[#aaa9a4]">
+          <p>
+            AI coding agents generate code efficiently but lack a durable model for governing
+            software evolution. Existing approaches reconstruct architecture from source code,
+            search for affected dependencies, and validate resulting patches. They do not maintain
+            an authoritative semantic state against which intended changes can be executed and
+            reconciled.
           </p>
-          <div class="max-w-xl space-y-4 text-lg leading-7 text-muted-foreground">
-            <p>
-              Nazare ships highly custom Shopify storefronts without the usual headless tradeoffs.
-              Launch new ideas, campaigns, integrations, A/B tests, and UX improvements without
-              constantly waiting on developers.
-            </p>
-            <p>
-              Create the customer experience you actually want, connect the tools your business
-              needs, and control every touchpoint that drives conversion — without every
-              improvement turning into an expensive development project.
-            </p>
-          </div>
-        </div>
 
-        <form class="max-w-lg space-y-3" data-signup-form>
-          <div class="flex flex-col gap-2 sm:flex-row">
-            <label class="sr-only" for="email">Email address</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              placeholder="you@example.com"
-              required
-              class="h-10 min-w-0 flex-1 rounded-md border border-input bg-background px-3 text-base shadow-xs outline-none transition-[color,box-shadow] placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm"
-            />
-            <div class="absolute -left-[10000px]" aria-hidden="true">
-              <label for="website">Website</label>
-              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          <p>
+            Nazare introduces a transactional <span class="text-[#171717] dark:text-[#e8e8e3]">Mutation API</span> over a persistent semantic map of a
+            codebase. Rather than attempting a complete representation of program behavior, Nazare
+            maintains an evolving graph of <span class="text-[#171717] dark:text-[#e8e8e3]">Behavioral Regions</span>—inferred change units whose
+            implementations must evolve together to modify a behavior safely—along with their
+            dependencies, contracts, effects, and product surfaces.
+          </p>
+
+          <p>
+            Agents express intended semantic changes <span class="text-[#171717] dark:text-[#e8e8e3]">Δ</span> against durable state <span class="text-[#171717] dark:text-[#e8e8e3]">S<sub>t</sub></span>. Nazare identifies
+            the affected region graph, generates candidate implementations, verifies semantic
+            obligations, and reconciles the observed codebase against the expected transition:
+          </p>
+
+          <div class="overflow-x-auto py-3 text-[#171717] dark:text-[#e8e8e3]" role="img" aria-label="S sub t plus delta, mutation to observed S sub t plus 1, reconciliation to S sub t plus 1">
+            <div class="flex min-w-max items-center justify-center gap-3 px-3 text-sm sm:gap-4 sm:text-base">
+              <span>S<sub>t</sub> + Δ</span>
+              <span class="flex flex-col items-center leading-none">
+                <span class="text-[0.6875rem] text-[#777873] dark:text-[#8d8e89]">mutation</span>
+                <span aria-hidden="true">⟶</span>
+              </span>
+              <span>S<sub>t+1</sub><sup class="ml-1 text-[0.65em]">observed</sup></span>
+              <span class="flex flex-col items-center leading-none">
+                <span class="text-[0.6875rem] text-[#777873] dark:text-[#8d8e89]">reconcile</span>
+                <span aria-hidden="true">⟶</span>
+              </span>
+              <span>S<sub>t+1</sub></span>
             </div>
-            <button
-              type="submit"
-              class="inline-flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-xs transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-            >
-              Get in Touch
-            </button>
           </div>
-          <p class="min-h-5 text-sm text-muted-foreground" data-form-status aria-live="polite"></p>
-        </form>
-      </section>
+
+          <p>
+            Its <span class="text-[#171717] dark:text-[#e8e8e3]">Wind Tunnel</span> evaluates valid implementations against plausible future mutations,
+            optimizing not merely immediate correctness but the expected cost of subsequent
+            software evolution:
+          </p>
+
+          <div class="overflow-x-auto py-3 text-[#171717] dark:text-[#e8e8e3]" role="img" aria-label="c star equals arg min over valid c of expected future mutation cost given c">
+            <div class="min-w-max px-3 text-center text-sm sm:text-base">
+              c* = arg min<sub class="ml-1">c ∈ C<sub>valid</sub></sub>
+              E<sub>δ ∼ P(Δ<sub>future</sub>)</sub>
+              [Cost(δ | c)]
+            </div>
+          </div>
+
+          <p>
+            Each mutation produces evidence about how implementation decisions affect future
+            changes, creating the foundation for a learned model of software evolution.
+          </p>
+
+          <p>
+            Unlike systems that repeatedly infer architecture from successive codebase snapshots,
+            Nazare preserves semantic identity and mutation history across transitions. Its
+            competitive hypothesis is that this persistent, reconciled state enables cheaper change
+            selection, more exhaustive coverage of modeled obligations, bounded execution, and
+            cumulative architectural optimization.
+          </p>
+
+          <p class="text-[#171717] dark:text-[#e8e8e3]">
+            Nazare is not another coding agent. It is an operating substrate for agent-maintained
+            software, designed to make codebase mutations transactional, verifiable, and
+            increasingly optimized for future change—the foundation for lights-off software
+            engineering.
+          </p>
+        </div>
+      </article>
     </main>
-
-    <script>
-      const form = document.querySelector<HTMLFormElement>("[data-signup-form]");
-      const status = document.querySelector<HTMLElement>("[data-form-status]");
-
-      form?.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
-        const formData = new FormData(form);
-
-        if (!button || !status) return;
-
-        button.disabled = true;
-        button.textContent = "Sending…";
-        status.textContent = "";
-
-        try {
-          const response = await fetch("/api/subscribe", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: formData.get("email"),
-              website: formData.get("website"),
-            }),
-          });
-          const result = await response.json();
-
-          status.textContent = result.message;
-          if (response.ok) {
-            form.reset();
-            button.textContent = "Sent";
-            return;
-          }
-        } catch {
-          status.textContent = "Could not add your email. Try again.";
-        }
-
-        button.disabled = false;
-        button.textContent = "Get in Touch";
-      });
-    </script>
   </body>
 </html>
