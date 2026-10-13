@@ -9,88 +9,32 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Nazare is a semantic mutation substrate for autonomous software engineering."
+      content="Nazare is a self-improving AI system for autonomous software evolution."
     />
-    <title>Nazare — A Semantic Mutation Substrate</title>
+    <title>Nazare</title>
   </head>
   <body class="min-h-svh bg-[#f1f1ee] font-mono text-[#171717] antialiased dark:bg-[#151515] dark:text-[#e8e8e3]">
-    <main class="mx-auto w-full max-w-3xl px-5 py-12 sm:px-8 sm:py-20 lg:py-28">
+    <main class="mx-auto w-full max-w-[42rem] px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
       <article aria-labelledby="title">
-        <h1 id="title" class="max-w-2xl text-xl leading-[1.35] font-semibold tracking-[-0.025em] sm:text-2xl">
-          Nazare: A Semantic Mutation Substrate for Autonomous Software Engineering
+        <h1 id="title" class="text-base leading-[1.6] font-semibold tracking-[-0.012em]">
+          Nazare: Testing the Future
         </h1>
 
-        <div class="mt-10 space-y-6 text-[0.9375rem] leading-[1.7] tracking-[-0.012em] text-[#555651] sm:text-base dark:text-[#aaa9a4]">
-          <p>
-            AI coding agents generate code efficiently but lack a durable model for governing
-            software evolution. Existing approaches reconstruct architecture from source code,
-            search for affected dependencies, and validate resulting patches. They do not maintain
-            an authoritative semantic state against which intended changes can be executed and
-            reconciled.
-          </p>
+        <div class="mt-6 text-base leading-[1.6] tracking-[-0.012em]">
+          <div class="space-y-3">
+            <p>Nazare is a self-improving AI system for autonomous software evolution.</p>
 
-          <p>
-            Nazare introduces a transactional <span class="text-[#171717] dark:text-[#e8e8e3]">Mutation API</span> over a persistent semantic map of a
-            codebase. Rather than attempting a complete representation of program behavior, Nazare
-            maintains an evolving graph of <span class="text-[#171717] dark:text-[#e8e8e3]">Behavioral Regions</span>—inferred change units whose
-            implementations must evolve together to modify a behavior safely—along with their
-            dependencies, contracts, effects, and product surfaces.
-          </p>
-
-          <p>
-            Agents express intended semantic changes <span class="text-[#171717] dark:text-[#e8e8e3]">Δ</span> against durable state <span class="text-[#171717] dark:text-[#e8e8e3]">S<sub>t</sub></span>. Nazare identifies
-            the affected region graph, generates candidate implementations, verifies semantic
-            obligations, and reconciles the observed codebase against the expected transition:
-          </p>
-
-          <div class="overflow-x-auto py-3 text-[#171717] dark:text-[#e8e8e3]" role="img" aria-label="S sub t plus delta, mutation to observed S sub t plus 1, reconciliation to S sub t plus 1">
-            <div class="flex min-w-max items-center justify-center gap-3 px-3 text-sm sm:gap-4 sm:text-base">
-              <span>S<sub>t</sub> + Δ</span>
-              <span class="flex flex-col items-center leading-none">
-                <span class="text-[0.6875rem] text-[#777873] dark:text-[#8d8e89]">mutation</span>
-                <span aria-hidden="true">⟶</span>
-              </span>
-              <span>S<sub>t+1</sub><sup class="ml-1 text-[0.65em]">observed</sup></span>
-              <span class="flex flex-col items-center leading-none">
-                <span class="text-[0.6875rem] text-[#777873] dark:text-[#8d8e89]">reconcile</span>
-                <span aria-hidden="true">⟶</span>
-              </span>
-              <span>S<sub>t+1</sub></span>
-            </div>
+            <p>
+              It learns how software works, discovers patterns in how it changes, and uses that
+              knowledge to make the software itself easier to modify. With each change, Nazare aims
+              to improve both the software and its own ability to evolve it.
+            </p>
           </div>
 
-          <p>
-            Its <span class="text-[#171717] dark:text-[#e8e8e3]">Wind Tunnel</span> evaluates valid implementations against plausible future mutations,
-            optimizing not merely immediate correctness but the expected cost of subsequent
-            software evolution:
-          </p>
-
-          <div class="overflow-x-auto py-3 text-[#171717] dark:text-[#e8e8e3]" role="img" aria-label="c star equals arg min over valid c of expected future mutation cost given c">
-            <div class="min-w-max px-3 text-center text-sm sm:text-base">
-              c* = arg min<sub class="ml-1">c ∈ C<sub>valid</sub></sub>
-              E<sub>δ ∼ P(Δ<sub>future</sub>)</sub>
-              [Cost(δ | c)]
-            </div>
-          </div>
-
-          <p>
-            Each mutation produces evidence about how implementation decisions affect future
-            changes, creating the foundation for a learned model of software evolution.
-          </p>
-
-          <p>
-            Unlike systems that repeatedly infer architecture from successive codebase snapshots,
-            Nazare preserves semantic identity and mutation history across transitions. Its
-            competitive hypothesis is that this persistent, reconciled state enables cheaper change
-            selection, more exhaustive coverage of modeled obligations, bounded execution, and
-            cumulative architectural optimization.
-          </p>
-
-          <p class="text-[#171717] dark:text-[#e8e8e3]">
-            Nazare is not another coding agent. It is an operating substrate for agent-maintained
-            software, designed to make codebase mutations transactional, verifiable, and
-            increasingly optimized for future change—the foundation for lights-off software
-            engineering.
+          <p class="mt-6">
+            <a class="underline underline-offset-4" href="mailto:f@nazare.engineering">
+              f@nazare.engineering
+            </a>
           </p>
         </div>
       </article>
