@@ -9,105 +9,35 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Nazare ships highly custom Shopify storefronts without the usual headless tradeoffs."
+      content="Nazare is a self-improving AI system for autonomous software evolution."
     />
     <title>Nazare</title>
   </head>
-  <body class="min-h-svh bg-background font-sans text-foreground antialiased">
-    <main class="mx-auto flex min-h-svh w-full max-w-2xl items-center px-5 py-16">
-      <section class="w-full space-y-8" aria-labelledby="hero-title">
-        <div class="space-y-5">
-          <p class="font-mono text-sm text-muted-foreground">Nazare</p>
-          <h1
-            id="hero-title"
-            class="max-w-xl text-4xl font-normal leading-[1.05] tracking-[-0.03em] text-balance sm:text-5xl"
-          >
-            Build what you want. Move as fast as you want.
-          </h1>
-          <p class="max-w-xl text-2xl leading-tight tracking-[-0.02em] text-balance">
-            The Shopify storefront you actually want — without the usual headless burden
+  <body class="min-h-svh bg-[#f1f1ee] font-mono text-[#171717] antialiased dark:bg-[#151515] dark:text-[#e8e8e3]">
+    <main class="mx-auto w-full max-w-[42rem] px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
+      <article aria-labelledby="title">
+        <h1 id="title" class="text-base leading-[1.6] font-semibold tracking-[-0.012em]">
+          Nazare: Testing the Future
+        </h1>
+
+        <div class="mt-6 text-base leading-[1.6] tracking-[-0.012em]">
+          <div class="space-y-3">
+            <p>Nazare is a self-improving AI system for autonomous software evolution.</p>
+
+            <p>
+              It learns how software works, discovers patterns in how it changes, and uses that
+              knowledge to make the software itself easier to modify. With each change, Nazare aims
+              to improve both the software and its own ability to evolve it.
+            </p>
+          </div>
+
+          <p class="mt-6">
+            <a class="underline underline-offset-4" href="mailto:f@nazare.engineering">
+              f@nazare.engineering
+            </a>
           </p>
-          <div class="max-w-xl space-y-4 text-lg leading-7 text-muted-foreground">
-            <p>
-              Nazare ships highly custom Shopify storefronts without the usual headless tradeoffs.
-              Launch new ideas, campaigns, integrations, A/B tests, and UX improvements without
-              constantly waiting on developers.
-            </p>
-            <p>
-              Create the customer experience you actually want, connect the tools your business
-              needs, and control every touchpoint that drives conversion — without every
-              improvement turning into an expensive development project.
-            </p>
-          </div>
         </div>
-
-        <form class="max-w-lg space-y-3" data-signup-form>
-          <div class="flex flex-col gap-2 sm:flex-row">
-            <label class="sr-only" for="email">Email address</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              placeholder="you@example.com"
-              required
-              class="h-10 min-w-0 flex-1 rounded-md border border-input bg-background px-3 text-base shadow-xs outline-none transition-[color,box-shadow] placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm"
-            />
-            <div class="absolute -left-[10000px]" aria-hidden="true">
-              <label for="website">Website</label>
-              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
-            </div>
-            <button
-              type="submit"
-              class="inline-flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-xs transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-            >
-              Get in Touch
-            </button>
-          </div>
-          <p class="min-h-5 text-sm text-muted-foreground" data-form-status aria-live="polite"></p>
-        </form>
-      </section>
+      </article>
     </main>
-
-    <script>
-      const form = document.querySelector<HTMLFormElement>("[data-signup-form]");
-      const status = document.querySelector<HTMLElement>("[data-form-status]");
-
-      form?.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
-        const formData = new FormData(form);
-
-        if (!button || !status) return;
-
-        button.disabled = true;
-        button.textContent = "Sending…";
-        status.textContent = "";
-
-        try {
-          const response = await fetch("/api/subscribe", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: formData.get("email"),
-              website: formData.get("website"),
-            }),
-          });
-          const result = await response.json();
-
-          status.textContent = result.message;
-          if (response.ok) {
-            form.reset();
-            button.textContent = "Sent";
-            return;
-          }
-        } catch {
-          status.textContent = "Could not add your email. Try again.";
-        }
-
-        button.disabled = false;
-        button.textContent = "Get in Touch";
-      });
-    </script>
   </body>
 </html>
