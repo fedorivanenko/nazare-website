@@ -31,6 +31,39 @@ import "../styles/global.css";
             </p>
           </div>
 
+          <figure class="mt-8">
+            <div class="overflow-x-auto py-2 text-center">
+              <math
+                class="text-2xl"
+                display="block"
+                aria-label="Minimum over R of the sum from t equals zero to T of change cost for x sub t and delta sub t given R"
+              >
+                <mrow>
+                  <munder>
+                    <mo>min</mo>
+                    <mi mathvariant="script">R</mi>
+                  </munder>
+                  <munderover>
+                    <mo>∑</mo>
+                    <mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow>
+                    <mi>T</mi>
+                  </munderover>
+                  <msub><mi>C</mi><mtext>change</mtext></msub>
+                  <mo>(</mo>
+                  <msub><mi>x</mi><mi>t</mi></msub>
+                  <mo>,</mo>
+                  <msub><mi>Δ</mi><mi>t</mi></msub>
+                  <mo>|</mo>
+                  <mi mathvariant="script">R</mi>
+                  <mo>)</mo>
+                </mrow>
+              </math>
+            </div>
+            <figcaption class="mt-2 text-center text-sm leading-[1.5] text-[#555651] dark:text-[#8d8e89]">
+              Minimizing the total cost of changing software over its lifetime.
+            </figcaption>
+          </figure>
+
           <p class="mt-6">
             <a class="underline underline-offset-4" href="mailto:f@nazare.engineering">
               f@nazare.engineering
